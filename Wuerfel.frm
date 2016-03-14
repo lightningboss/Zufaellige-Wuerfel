@@ -198,7 +198,7 @@ Private Sub Command1_Click()
             LabelWuerfel.Caption = "3 mal 2 ist 6! Nächstes mal klappts bestimmt!"
         Case 4
             Image4.Visible = True
-            LabelWuerfel.Caption = "4 mal 1,5 ist 6!"
+            LabelWuerfel.Caption = "4 plus 2 ist 6!"
         Case 5
             Image5.Visible = True
             LabelWuerfel.Caption = "Das ist doch schonmal ein Anfang!"
@@ -265,7 +265,7 @@ End If
 End Sub
 
 Private Sub Input2_Validate(Cancel As Boolean) ' Augensumme
-If (Not IsNumeric(Input1.Text)) And (Not Input1.Text = "") Then
+If (Not IsNumeric(Input2.Text)) And (Not Input2.Text = "") Then
     MsgBox "Bitte geben Sie eine Zahl zwischen 1 und 12 ein!"
     Cancel = True
 End If
