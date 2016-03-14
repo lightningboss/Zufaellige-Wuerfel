@@ -61,6 +61,7 @@ Begin VB.Form Form1
       MaskColor       =   &H00FFFFFF&
       MousePointer    =   14  'Pfeil und Fragezeichen
       TabIndex        =   5
+      TabStop         =   0   'False
       Top             =   2880
       Width           =   255
    End
@@ -106,6 +107,7 @@ Begin VB.Form Form1
    End
    Begin VB.Label LabelWuerfel 
       BackColor       =   &H00FFFFFF&
+      Caption         =   "Herzlich Willkommen bei ""Zufällige Würfel""!"
       BeginProperty Font 
          Name            =   "MS Sans Serif"
          Size            =   9.75
@@ -127,7 +129,6 @@ Begin VB.Form Form1
       Picture         =   "Wuerfel.frx":0000
       Stretch         =   -1  'True
       Top             =   360
-      Visible         =   0   'False
       Width           =   1695
    End
    Begin VB.Image Image5 
@@ -249,6 +250,7 @@ Private Sub Command3_Click()
 End Sub
 
 Private Sub Command4_Click()
+    MsgBox "Dieser Button beantwortet folgende Problemstellung: Vier Würfel werden geworfen. Lohnt es sich, darauf zu wetten, dass keine 6 darunter vorkommt?"
     n = 1000000 ' Mach das 1 Mio. mal
     For i = i To n
         a = randomNr(1, 6) ' Würfel 1 bis 6
@@ -289,6 +291,12 @@ If (Not IsNumeric(Input1.Text)) And (Not Input1.Text = "") Then
     MsgBox "Bitte geben Sie jeweils eine Zahl ein!"
     Cancel = True
 End If
+End Sub
+
+Private Sub Input2_KeyDown(Key As Integer, Shift As Integer)
+    If (Key = 13) Then
+        Command3_Click
+    End If
 End Sub
 
 Private Sub Input2_Validate(Cancel As Boolean) ' Augensumme
