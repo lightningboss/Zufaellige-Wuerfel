@@ -9,6 +9,42 @@ Begin VB.Form Form1
    ScaleHeight     =   3510
    ScaleWidth      =   9165
    StartUpPosition =   3  'Windows-Standard
+   Begin VB.TextBox Input1 
+      Alignment       =   2  'Zentriert
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   12
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   420
+      Left            =   3360
+      MaxLength       =   6
+      TabIndex        =   3
+      Top             =   2400
+      Width           =   1095
+   End
+   Begin VB.TextBox Input2 
+      Alignment       =   2  'Zentriert
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   12
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   420
+      Left            =   3360
+      MaxLength       =   2
+      TabIndex        =   4
+      Top             =   2880
+      Width           =   1095
+   End
    Begin VB.CommandButton copyright 
       BackColor       =   &H00FFFFFF&
       Caption         =   "M"
@@ -16,17 +52,17 @@ Begin VB.Form Form1
       Left            =   8880
       MaskColor       =   &H00FFFFFF&
       MousePointer    =   14  'Pfeil und Fragezeichen
-      TabIndex        =   3
+      TabIndex        =   5
       Top             =   3120
       Width           =   255
    End
    Begin VB.CommandButton Command3 
       Caption         =   "Zwei Würfel werfen"
-      Height          =   855
+      Height          =   975
       Left            =   240
       TabIndex        =   2
       Top             =   2400
-      Width           =   3135
+      Width           =   1815
    End
    Begin VB.CommandButton Command2 
       Caption         =   "Würfeln bis eine 6 kommt"
@@ -34,7 +70,7 @@ Begin VB.Form Form1
       Left            =   240
       TabIndex        =   1
       Top             =   1320
-      Width           =   3135
+      Width           =   4095
    End
    Begin VB.CommandButton Command1 
       Caption         =   "Würfel 1x werfen"
@@ -42,7 +78,23 @@ Begin VB.Form Form1
       Left            =   240
       TabIndex        =   0
       Top             =   240
-      Width           =   3135
+      Width           =   4095
+   End
+   Begin VB.Label LblAugensumme 
+      Caption         =   "Augensumme?"
+      Height          =   255
+      Left            =   2160
+      TabIndex        =   8
+      Top             =   3000
+      Width           =   1095
+   End
+   Begin VB.Label LblWieOft 
+      Caption         =   "Wie oft?"
+      Height          =   255
+      Left            =   2160
+      TabIndex        =   7
+      Top             =   2520
+      Width           =   1095
    End
    Begin VB.Label LabelWuerfel 
       BackColor       =   &H00FFFFFF&
@@ -57,7 +109,7 @@ Begin VB.Form Form1
       EndProperty
       Height          =   855
       Left            =   6840
-      TabIndex        =   4
+      TabIndex        =   6
       Top             =   2280
       Width           =   1695
    End
@@ -176,6 +228,26 @@ Private Sub Command2_Click()
     
 End Sub
 
+Private Sub Command3_Click()
+    If Input1.Text = "" Or Input2.Text = "" Then
+        MsgBox "Bitte geben Sie jeweils eine Zahl ein!"
+    Else
+        n = Int(Input1.Text)
+        Sum = Int(Input2.Text)
+        WieOft = 0
+        For i = 1 To n
+            a = randomNr(1, 6)
+            b = randomNr(1, 6)
+            If (a + b) = Sum Then ' Sobald a + b = Summe: Erhöhe WieOft um 1
+                WieOft = WieOft + 1
+            End If
+        Next i
+        hideEveryImage
+        LabelWuerfel.Caption = "Du bekommst die Augensumme " & WieOft & " mal!"
+    End If
+    
+End Sub
+
 Private Sub copyright_Click()
     MsgBox "Copyright by Marc Nitzsche, 2016"
 End Sub
@@ -193,5 +265,16 @@ Function hideEveryImage() ' Alle Bilder verschwinden lassen
     Image5.Visible = False
     Image6.Visible = False
 End Function
+Private Sub Input1_Validate(Cancel As Boolean) ' Wie oft?
+If (Not IsNumeric(Input1.Text)) And (Not Input1.Text = "") Then
+    MsgBox "Bitte geben Sie jeweils eine Zahl ein!"
+    Cancel = True
+End If
+End Sub
 
-
+Private Sub Input2_Validate(Cancel As Boolean) ' Augensumme
+If (Not IsNumeric(Input1.Text)) And (Not Input1.Text = "") Then
+    MsgBox "Bitte geben Sie eine Zahl zwischen 1 und 12 ein!"
+    Cancel = True
+End If
+End Sub
