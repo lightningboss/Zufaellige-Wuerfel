@@ -164,6 +164,18 @@ Private Sub Command1_Click()
     
 End Sub
 
+Private Sub Command2_Click()
+    hideEveryImage
+    Image6.Visible = True
+    i = 0
+    Do
+        dieSechs = randomNr(1, 6)
+        i = i + 1
+    Loop While (dieSechs <> 6)
+    LabelWuerfel.Caption = "Du brauchst " & i & " mal um eine " & dieSechs & " zu würfeln!"
+    
+End Sub
+
 Private Sub copyright_Click()
     MsgBox "Copyright by Marc Nitzsche, 2016"
 End Sub
