@@ -4,10 +4,10 @@ Begin VB.Form Form1
    ClientHeight    =   3510
    ClientLeft      =   120
    ClientTop       =   450
-   ClientWidth     =   9165
+   ClientWidth     =   7110
    LinkTopic       =   "Form1"
    ScaleHeight     =   3510
-   ScaleWidth      =   9165
+   ScaleWidth      =   7110
    StartUpPosition =   3  'Windows-Standard
    Begin VB.TextBox Input1 
       Alignment       =   2  'Zentriert
@@ -49,7 +49,7 @@ Begin VB.Form Form1
       BackColor       =   &H00FFFFFF&
       Caption         =   "M"
       Height          =   315
-      Left            =   8880
+      Left            =   6840
       MaskColor       =   &H00FFFFFF&
       MousePointer    =   14  'Pfeil und Fragezeichen
       TabIndex        =   5
@@ -108,22 +108,14 @@ Begin VB.Form Form1
          Strikethrough   =   0   'False
       EndProperty
       Height          =   855
-      Left            =   6840
+      Left            =   4800
       TabIndex        =   6
       Top             =   2280
       Width           =   1695
    End
-   Begin VB.Shape Shape2 
-      BackStyle       =   1  'Undurchsichtig
-      BorderStyle     =   0  'Transparent
-      Height          =   3015
-      Left            =   4560
-      Top             =   240
-      Width           =   1935
-   End
    Begin VB.Image Image6 
       Height          =   1695
-      Left            =   6840
+      Left            =   4800
       Picture         =   "Wuerfel.frx":0000
       Stretch         =   -1  'True
       Top             =   360
@@ -132,7 +124,7 @@ Begin VB.Form Form1
    End
    Begin VB.Image Image5 
       Height          =   1695
-      Left            =   6840
+      Left            =   4800
       Picture         =   "Wuerfel.frx":7A08
       Stretch         =   -1  'True
       Top             =   360
@@ -141,7 +133,7 @@ Begin VB.Form Form1
    End
    Begin VB.Image Image4 
       Height          =   1695
-      Left            =   6840
+      Left            =   4800
       Picture         =   "Wuerfel.frx":EC88
       Stretch         =   -1  'True
       Top             =   360
@@ -150,7 +142,7 @@ Begin VB.Form Form1
    End
    Begin VB.Image Image3 
       Height          =   1695
-      Left            =   6840
+      Left            =   4800
       Picture         =   "Wuerfel.frx":157B3
       Stretch         =   -1  'True
       Top             =   360
@@ -159,7 +151,7 @@ Begin VB.Form Form1
    End
    Begin VB.Image Image2 
       Height          =   1695
-      Left            =   6840
+      Left            =   4800
       Picture         =   "Wuerfel.frx":1BB67
       Stretch         =   -1  'True
       Top             =   360
@@ -168,7 +160,7 @@ Begin VB.Form Form1
    End
    Begin VB.Image Image1 
       Height          =   1695
-      Left            =   6840
+      Left            =   4800
       Picture         =   "Wuerfel.frx":217A4
       Stretch         =   -1  'True
       Top             =   360
@@ -179,7 +171,7 @@ Begin VB.Form Form1
       BackStyle       =   1  'Undurchsichtig
       BorderStyle     =   0  'Transparent
       Height          =   3015
-      Left            =   6720
+      Left            =   4680
       Top             =   240
       Width           =   1935
    End
