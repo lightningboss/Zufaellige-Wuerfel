@@ -230,7 +230,7 @@ Private Sub Command2_Click()
 End Sub
 
 Private Sub Command3_Click()
-    If Input1.Text = "" Or Input2.Text = "" Then
+    If Input1.Text = "" Or Input2.Text = "" Then ' Sind auch beide Inputs gefüllt?
         MsgBox "Bitte geben Sie jeweils eine Zahl ein!"
     Else
         n = Int(Input1.Text)
@@ -269,8 +269,9 @@ Private Sub Command4_Click()
     End If
 End Sub
 
-Private Sub copyright_Click()
+Private Sub copyright_Click() ' Mystery-Button
     MsgBox "Copyright by Marc Nitzsche, 2016"
+    MsgBox "Visit: https://github.com/lightningboss/"
 End Sub
 
 Function randomNr(Min As Integer, Max As Integer)
