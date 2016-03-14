@@ -9,6 +9,14 @@ Begin VB.Form Form1
    ScaleHeight     =   3510
    ScaleWidth      =   7110
    StartUpPosition =   3  'Windows-Standard
+   Begin VB.CommandButton Command4 
+      Caption         =   "L o h n t  e s s i c h ?"
+      Height          =   2535
+      Left            =   6720
+      TabIndex        =   9
+      Top             =   240
+      Width           =   255
+   End
    Begin VB.TextBox Input1 
       Alignment       =   2  'Zentriert
       BeginProperty Font 
@@ -49,11 +57,11 @@ Begin VB.Form Form1
       BackColor       =   &H00FFFFFF&
       Caption         =   "M"
       Height          =   315
-      Left            =   6840
+      Left            =   6720
       MaskColor       =   &H00FFFFFF&
       MousePointer    =   14  'Pfeil und Fragezeichen
       TabIndex        =   5
-      Top             =   3120
+      Top             =   2880
       Width           =   255
    End
    Begin VB.CommandButton Command3 
@@ -238,6 +246,25 @@ Private Sub Command3_Click()
         LabelWuerfel.Caption = "Du bekommst die Augensumme " & WieOft & " mal!"
     End If
     
+End Sub
+
+Private Sub Command4_Click()
+    n = 1000000 ' Mach das 1 Mio. mal
+    For i = i To n
+        a = randomNr(1, 6) ' Würfel 1 bis 6
+        b = randomNr(1, 6)
+        c = randomNr(1, 6)
+        d = randomNr(1, 6)
+        
+        If (a = 6) Or (b = 6) Or (c = 6) Or (d = 6) Then ' Wenn auch nur einer der Würfel eine 6 ist
+            didItHappen = didItHappen + 1
+        End If
+    Next i
+    If (didItHappen / n > 0.5) Then ' Wenn wir ca. eine Chance von 1/2 haben
+        MsgBox "Es lohnt sich. Chance: " & didItHappen / n * 100 & "%"
+    Else
+        MsgBox "Es lohnt sich nicht. Chance: " & didItHappen / n * 100 & "%"
+    End If
 End Sub
 
 Private Sub copyright_Click()
