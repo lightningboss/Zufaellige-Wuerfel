@@ -140,9 +140,11 @@ Attribute VB_Exposed = False
 Private Sub Command1_Click()
     wuerfel = randomNr(1, 6)
     hideEveryImage
+    ' Da nicht jedes Bild automatisch auf der obersten Ebene angezeigt wird,
+    ' werden sicherheitshalber alle Bilder aus dem Sichtfeld entfernt
     Select Case wuerfel
         Case 1
-            Image1.Visible = True
+            Image1.Visible = True ' Image1 = eine 1, Image2 = eine 2, ...
             LabelWuerfel.Caption = "Schade, nur eine 1!"
         Case 2
             Image2.Visible = True
@@ -160,8 +162,6 @@ Private Sub Command1_Click()
             Image6.Visible = True
             LabelWuerfel.Caption = "Wer eine 6 würfelt, darf nochmal!"
     End Select
-    
-    
 End Sub
 
 Private Sub Command2_Click()
@@ -171,7 +171,7 @@ Private Sub Command2_Click()
     Do
         dieSechs = randomNr(1, 6)
         i = i + 1
-    Loop While (dieSechs <> 6)
+    Loop While (dieSechs <> 6) ' Würfele so lange, bis wir eine 6 haben. i zählt mit, wie oft wir schon gewürfelt haben.
     LabelWuerfel.Caption = "Du brauchst " & i & " mal um eine " & dieSechs & " zu würfeln!"
     
 End Sub
@@ -181,9 +181,11 @@ Private Sub copyright_Click()
 End Sub
 
 Function randomNr(Min As Integer, Max As Integer)
+    ' Die Gestaltung als Funktion mit Start- und Endwertist zukunftssicherer als ein einfacher Würfel
+    ' da wir diese Funktion dann auch für andere Zufallszahlen (nicht 1 bis 6) benutzen können
     randomNr = Int(Rnd() * Max) + Min
 End Function
-Function hideEveryImage()
+Function hideEveryImage() ' Alle Bilder verschwinden lassen
     Image1.Visible = False
     Image2.Visible = False
     Image3.Visible = False
